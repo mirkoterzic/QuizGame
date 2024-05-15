@@ -40,7 +40,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     public Cursor getAllResults() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.query("leaderboard", null, null, null, null, null, "result DESC");
+        return db.query("leaderboard", null, null, null, null, null, "result DESC, time ASC");
     }
 
 
