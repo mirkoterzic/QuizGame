@@ -52,10 +52,10 @@ public class ResultActivty extends AppCompatActivity {
                 String playerName = player_name.getText().toString();
                 String resultText = result.getText().toString();
                 int resultValue = Integer.parseInt(resultText.split("/")[0]);
-
+                int timeValue=time;
                 // Insert data into the database
                 MyDBHelper dbHelper = new MyDBHelper(ResultActivty.this);
-                dbHelper.addResult(playerName, resultValue);
+                dbHelper.addResult(playerName, resultValue,timeValue);
 
                 Intent homepage= new Intent(ResultActivty.this,MainActivity.class);
                 startActivity(homepage);

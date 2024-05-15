@@ -2,8 +2,10 @@ package com.example.mirkoterzicseminarskirad;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +30,28 @@ public class LeaderboardActivity extends AppCompatActivity {
         // Create an adapter to display the data in the ListView
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                 this,
-                android.R.layout.simple_list_item_2,
+                R.layout.custom_leaderboard_item,
                 cursor,
-                new String[]{"name", "result"},
-                new int[]{android.R.id.text1, android.R.id.text2},
+                new String[]{"name", "result","time"},
+                new int[]{R.id.textViewName,R.id.textViewResult,R.id.textViewTime},
                 0
         );
+        adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+            @Override
+            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                String columnName = cursor.getColumnName(columnIndex);
+                if (columnName.equals("result")) {
+                    int resultValue = cursor.getInt(columnIndex);
+                    ((TextView) view).setText("Result: " + resultValue);
+                    return true;
+                } else if (columnName.equals("time")) {
+                    int timeValue = cursor.getInt(columnIndex);
+                    ((TextView) view).setText("Time elapsed: " + timeValue + " seconds");
+                    return true;
+                }
+                return false;
+            }
+        });
 
         // Set the adapter for the ListView
         leaderboardListView.setAdapter(adapter);
