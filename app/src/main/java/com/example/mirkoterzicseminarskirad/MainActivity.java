@@ -2,11 +2,13 @@ package com.example.mirkoterzicseminarskirad;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -68,6 +70,32 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Retrieve the user's name from the input field
                 String playerName = input.getText().toString();
+
+
+                // Check if the playerName is empty or contains only spaces
+                if (playerName.isEmpty() || playerName.matches("^\\s*$")) {
+                    Toast.makeText(MainActivity.this, "Player name cannot be empty or contain only spaces", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Check if the playerName is unique by querying the leaderboard database
+                MyDBHelper dbHelper = new MyDBHelper(MainActivity.this);
+                Cursor cursor = dbHelper.getAllResults();
+
+                // Check if the cursor contains the "name" column
+                int nameColumnIndex = cursor.getColumnIndex("name");
+                if (nameColumnIndex == -1) {
+                    // Handle the case where the "name" column is not found
+                    Toast.makeText(MainActivity.this, "Column 'name' not found", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                while (cursor.moveToNext()) {
+                    String name = cursor.getString(nameColumnIndex);
+                    if (name.equalsIgnoreCase(playerName)) {
+                        Toast.makeText(MainActivity.this, "Player name must be unique", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                cursor.close();
 
                 // Start the QuizActivity with the player's name as an extra in the intent
                 Intent intent = new Intent(MainActivity.this, QuizActivity.class);
