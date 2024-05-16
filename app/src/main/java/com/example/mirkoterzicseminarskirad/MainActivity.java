@@ -3,6 +3,7 @@ package com.example.mirkoterzicseminarskirad;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button quizButton;
 
     private Button leaderboard_btn;
+    private Button clr_leaderboard;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
        quizButton = findViewById(R.id.start_quiz_button);
        leaderboard_btn= findViewById(R.id.leaderboard_btn);
+       clr_leaderboard=findViewById(R.id.clr_leaderboard);
 
 
         QuizQuestions Questions= new QuizQuestions();
@@ -51,9 +55,32 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        clr_leaderboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clearLeaderBoard();
+            }
+        });
 
 
     }
+    private void clearLeaderBoard() {
+        // Create an instance of the database helper
+        MyDBHelper dbHelper = new MyDBHelper(MainActivity.this);
+
+        // Get a writable database instance
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Delete all rows from the "results" table
+        db.delete("leaderboard", null, null);
+
+        // Close the database
+        db.close();
+
+        // Show a toast message to indicate that the leaderboard has been cleared
+        Toast.makeText(MainActivity.this, "Leaderboard cleared", Toast.LENGTH_SHORT).show();
+    }
+
     private void startQuizActivityWithPlayerName(QuizQuestion[] questions) {
         // Create an AlertDialog to prompt the user to enter their name
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

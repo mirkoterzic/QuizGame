@@ -9,24 +9,60 @@
 
     <Button
         android:id="@+id/start_quiz_button"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="116dp"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
         android:text="START QUIZ"
+        android:textAppearance="@style/ButtonTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+
+    <Button
+        android:id="@+id/leaderboard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:text="LEADER BOARD"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/ButtonTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_quiz_button" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="QUIZ"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/leaderboard_btn"
+        android:id="@+id/clr_leaderboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LEADER BOARD"
+        android:text="Clear LeaderBoard "
+        android:background="@color/red"
+        android:textAllCaps="false"
+        android:padding="10dp"
+        android:textAppearance="@style/ButtonTextStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start_quiz_button"
-        app:layout_constraintVertical_bias="0.312" />
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_btn"
+        app:layout_constraintVertical_bias="0.614" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
