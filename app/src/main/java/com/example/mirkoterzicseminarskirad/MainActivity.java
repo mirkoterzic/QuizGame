@@ -100,8 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                 // Check if the playerName is empty or contains only spaces
-                if (player_name.isEmpty() || player_name.matches("^\\s*$")) {
+                if (player_name.isEmpty() || player_name.matches("^\\s*$") ) {
                     Toast.makeText(MainActivity.this, "Player name cannot be empty or contain only spaces", Toast.LENGTH_SHORT).show();
+                    return;
+                }else if(player_name.length()>20){
+                    Toast.makeText(MainActivity.this, "Player name cannot be longer then 20 characters", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 // Check if the playerName is unique by querying the leaderboard database
