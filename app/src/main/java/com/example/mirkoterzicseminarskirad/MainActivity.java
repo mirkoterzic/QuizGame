@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button quizButton;
+    private Button quiz_btn;
 
     private Button leaderboard_btn;
     private Button clr_leaderboard;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-       quizButton = findViewById(R.id.start_quiz_button);
+       quiz_btn = findViewById(R.id.start_quiz_button);
        leaderboard_btn= findViewById(R.id.leaderboard_btn);
        clr_leaderboard=findViewById(R.id.clr_leaderboard);
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        quizButton.setOnClickListener(new View.OnClickListener() {
+        quiz_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start Quiz Game Activity
@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Retrieve the user's name from the input field
-                String playerName = input.getText().toString();
+                String player_name = input.getText().toString();
 
 
                 // Check if the playerName is empty or contains only spaces
-                if (playerName.isEmpty() || playerName.matches("^\\s*$")) {
+                if (player_name.isEmpty() || player_name.matches("^\\s*$")) {
                     Toast.makeText(MainActivity.this, "Player name cannot be empty or contain only spaces", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -109,15 +109,15 @@ public class MainActivity extends AppCompatActivity {
                 Cursor cursor = dbHelper.getAllResults();
 
                 // Check if the cursor contains the "name" column
-                int nameColumnIndex = cursor.getColumnIndex("name");
-                if (nameColumnIndex == -1) {
+                int name_column_index = cursor.getColumnIndex("name");
+                if (name_column_index == -1) {
                     // Handle the case where the "name" column is not found
                     Toast.makeText(MainActivity.this, "Column 'name' not found", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 while (cursor.moveToNext()) {
-                    String name = cursor.getString(nameColumnIndex);
-                    if (name.equalsIgnoreCase(playerName)) {
+                    String name = cursor.getString(name_column_index);
+                    if (name.equalsIgnoreCase(player_name)) {
                         Toast.makeText(MainActivity.this, "Player name must be unique", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 // Start the QuizActivity with the player's name as an extra in the intent
                 Intent intent = new Intent(MainActivity.this, QuizActivity.class);
                 intent.putExtra("questions", questions);
-                intent.putExtra("playerName", playerName);
+                intent.putExtra("playerName", player_name);
                 startActivity(intent);
                 finish();
             }

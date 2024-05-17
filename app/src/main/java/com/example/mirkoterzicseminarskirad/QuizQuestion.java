@@ -11,18 +11,18 @@ public  class QuizQuestion implements Serializable {
         return options;
     }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
+    public String getCorrect_answer() {
+        return correct_answer;
     }
 
     private String question;
     private String[] options;
-    private String correctAnswer;
+    private String correct_answer;
 
-    public  QuizQuestion(String question, String[] options, String correctAnswer ){
+    public  QuizQuestion(String question, String[] options, String correct_answer ){
         this.question=question;
         this.options=options;
-        this.correctAnswer=correctAnswer;
+        this.correct_answer =correct_answer;
     }
 
 

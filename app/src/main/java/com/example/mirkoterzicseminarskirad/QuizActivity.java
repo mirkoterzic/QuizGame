@@ -20,16 +20,16 @@ public class QuizActivity extends AppCompatActivity {
     private TextView questionTextView;
     private TextView timer;
     private Button answer;
-    private int currentQuestionIndex = 0;
-    private int correctAnswers=0;
-    private int secondsElapsed = 0;
-    private Handler timerHandler = new Handler();
-    private Runnable timerRunnable = new Runnable() {
+    private int current_question_index = 0;
+    private int correct_answers =0;
+    private int seconds_elapsed = 0;
+    private Handler timer_handler = new Handler();
+    private Runnable timer_runnable = new Runnable() {
         @Override
         public void run() {
-            secondsElapsed++;
-            timer.setText(String.valueOf(secondsElapsed));
-            timerHandler.postDelayed(this, 1000); // Schedule the Runnable to run again after 1 second
+            seconds_elapsed++;
+            timer.setText(String.valueOf(seconds_elapsed));
+            timer_handler.postDelayed(this, 1000); // Schedule the Runnable to run again after 1 second
         }
     };
 
@@ -69,10 +69,10 @@ public class QuizActivity extends AppCompatActivity {
     private void checkAnswerAndProceed() {
         QuizQuestion currentQuestion = getCurrentQuestion();
         String selectedOption = getSelectedOption();
-        String correctAnswer = currentQuestion.getCorrectAnswer();
+        String correctAnswer = currentQuestion.getCorrect_answer();
         if (selectedOption.equals(correctAnswer)) {
             showToast("Correct!");
-            correctAnswers++;
+            correct_answers++;
         } else {
             showToast("Incorrect!");
         }
@@ -82,16 +82,18 @@ public class QuizActivity extends AppCompatActivity {
     // Method to display the next question
     private void displayNextQuestion() {
         QuizQuestion[] questions = getQuestionsFromIntent();
-        if ( currentQuestionIndex < questions.length) {
-            QuizQuestion currentQuestion = questions[currentQuestionIndex];
+        if ( current_question_index < questions.length) {
+            QuizQuestion currentQuestion = questions[current_question_index];
             displayQuestion(currentQuestion);
         } else {
             stopTimer(); // Stop the timer when the activity is destroyed
             Intent result_intent = new Intent(this, ResultActivty.class);
-            result_intent.putExtra("correctAnswers",correctAnswers);
+
             String playerName = getIntent().getStringExtra("playerName");
+            //Put extra variables from current activity to result
+            result_intent.putExtra("correctAnswers", correct_answers);
             result_intent.putExtra("playerName", playerName);
-            result_intent.putExtra("time",secondsElapsed);
+            result_intent.putExtra("time", seconds_elapsed);
 
             startActivity(result_intent);
             // Finish the current activity to prevent the user from returning to it using the back button
@@ -107,7 +109,7 @@ public class QuizActivity extends AppCompatActivity {
         toast.show();
 
         // Schedule a Runnable to cancel the Toast after a delay of 500 milliseconds
-        timerHandler.postDelayed(new Runnable() {
+        timer_handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 toast.cancel(); // Cancel the Toast
@@ -118,8 +120,8 @@ public class QuizActivity extends AppCompatActivity {
     // Method to get the current question
     private QuizQuestion getCurrentQuestion() {
         QuizQuestion[] questions = getQuestionsFromIntent();
-        if (questions != null && currentQuestionIndex < questions.length) {
-            return questions[currentQuestionIndex];
+        if (questions != null && current_question_index < questions.length) {
+            return questions[current_question_index];
         }
         return null;
     }
@@ -140,7 +142,7 @@ public class QuizActivity extends AppCompatActivity {
 
     // Method to move to the next question
     private void moveToNextQuestion() {
-        currentQuestionIndex++;
+        current_question_index++;
         displayNextQuestion();
     }
 
@@ -159,12 +161,12 @@ public class QuizActivity extends AppCompatActivity {
         return (QuizQuestion[]) getIntent().getSerializableExtra("questions");
     }
     private void startTimer() {
-        timerHandler.postDelayed(timerRunnable, 1000); // Start the timer by posting the Runnable
+        timer_handler.postDelayed(timer_runnable, 1000); // Start the timer by posting the Runnable
     }
 
     // Method to stop the timer
     private void stopTimer() {
-        timerHandler.removeCallbacks(timerRunnable); // Remove the scheduled Runnable to stop the timer
+        timer_handler.removeCallbacks(timer_runnable); // Remove the scheduled Runnable to stop the timer
     }
 
 }
