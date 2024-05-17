@@ -6,4 +6,22 @@
         <item name="android:fontFamily">@font/pressstart_2p</item>
         <item name="android:padding">16dp</item>
     </style>
+    <!-- res/values/styles.xml -->
+
+        <!-- Style for the RadioGroup -->
+        <style name="CustomRadioGroup">
+            <!-- Add any desired properties here -->
+        </style>
+
+        <!-- Style for the RadioButtons -->
+        <style name="CustomRadioButton">
+            <item name="android:buttonTint">@color/radio_button_tint</item>
+            <item name="android:textColor">@color/radio_button_text_color</item>
+            <item name="android:textSize">16sp</item>
+            <item name="android:layout_margin">8dp</item>
+            <item name="android:background">@drawable/radio_button_background</item>
+            <!-- Add more properties as needed -->
+        </style>
+
+
 </resources>

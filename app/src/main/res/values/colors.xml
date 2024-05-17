@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF5722</color>
-    <color name="dark_orange">#FF9800</color>
-    <color name="light_orange">#FFC107</color>
+    <color name="btn_end_color">#00d4ff</color>
+    <color name="btn_start_color">#090979</color>
+    <color name="radio_button_tint">#105BDD</color>
+    <color name="radio_button_text_color">#000000</color>
 
 </resources>
