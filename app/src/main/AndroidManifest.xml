@@ -22,15 +22,6 @@
             android:name=".QuizActivity"
             android:exported="false" />
         <activity
-            android:name=".questions"
-            android:exported="false" />
-        <activity
-            android:name=".HigherLowerGameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".QuizGameActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
