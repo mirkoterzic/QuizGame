@@ -40,7 +40,7 @@ public class ResultActivty extends AppCompatActivity {
         correct=(int) getIntent().getSerializableExtra("correctAnswers");
         time=(int) getIntent().getSerializableExtra("time");
         result.setText(correct+"/"+Questions.getQuestionsLength());
-        time_elapsed.setText("Time elapsed  " +time);
+        time_elapsed.setText("Time elapsed  " +time + " seconds");
         String playerName = getIntent().getStringExtra("playerName");
         player_name.setText(playerName);
 

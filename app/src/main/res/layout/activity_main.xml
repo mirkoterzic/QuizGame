@@ -7,30 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/start_quiz_button"
-        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:padding="16dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/button_background"
+        android:gravity="center_vertical"
+        android:padding="16dp"
         android:text="START QUIZ"
         android:textAppearance="@style/ButtonTextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
-
     <Button
         android:id="@+id/leaderboard_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="104dp"
         android:background="@drawable/button_background"
+        android:gravity="center_vertical"
         android:padding="16dp"
         android:text="LEADER BOARD"
-        android:gravity="center_vertical"
         android:textAppearance="@style/ButtonTextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,16 +53,16 @@
         android:id="@+id/clr_leaderboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear LeaderBoard "
         android:background="@color/red"
+        android:padding="15dp"
+        android:text="Clear LeaderBoard "
         android:textAllCaps="false"
-        android:padding="10dp"
         android:textAppearance="@style/ButtonTextStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/leaderboard_btn"
-        app:layout_constraintVertical_bias="0.614" />
+        app:layout_constraintVertical_bias="0.74" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

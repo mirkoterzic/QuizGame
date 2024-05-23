@@ -11,7 +11,6 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FINISHED"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/homepage_btn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="164dp"
         android:text="HomePage"
+        android:padding="16dp"
+        android:background="@drawable/button_background"
+        android:textAppearance="@style/ButtonTextStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
