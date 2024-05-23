@@ -42,7 +42,7 @@ public class ResultActivty extends AppCompatActivity {
         result.setText(correct+"/"+Questions.getQuestionsLength());
         time_elapsed.setText("Time elapsed  " +time + " seconds");
         String playerName = getIntent().getStringExtra("playerName");
-        player_name.setText(playerName);
+        player_name.setText("Player name : "+playerName);
 
         homepage_btn.setOnClickListener(new View.OnClickListener() {
             @Override
