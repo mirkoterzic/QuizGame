@@ -108,7 +108,7 @@ public class QuizActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT);
         toast.show();
 
-        // Schedule a Runnable to cancel the Toast after a delay of 500 milliseconds
+        // Shorten toast time
         timer_handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -164,7 +164,6 @@ public class QuizActivity extends AppCompatActivity {
         timer_handler.postDelayed(timer_runnable, 1000); // Start the timer by posting the Runnable
     }
 
-    // Method to stop the timer
     private void stopTimer() {
         timer_handler.removeCallbacks(timer_runnable); // Remove the scheduled Runnable to stop the timer
     }

@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         // Get a writable database instance
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // Delete all rows from the "results" table
+        // Delete all rows from leaderboard table
         db.delete("leaderboard", null, null);
 
         // Close the database
