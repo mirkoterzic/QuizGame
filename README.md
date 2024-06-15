@@ -10,10 +10,10 @@ Welcome to the Android Quiz Game! This application is a fun and interactive quiz
 
 ## Screenshots
 
-<img src="screeshots/quiz_game_main_interface.jpg" alt="Main Screen" width="300">
-<img src="screeshots/quiz_game_playing.jpg" alt="Quiz Screen" width="300">
-<img src="screeshots/quiz_game_result_screen.jpg" alt="Results Screen" width="300">
-<img src="screeshots/leaderboard_with_players.jpg" alt="Leaderboard" width="300">
+<img src="screenshots/quiz_game_main_interface.jpg" alt="Main Screen" width="300">
+<img src="screenshots/quiz_game_playing.jpg" alt="Quiz Screen" width="300">
+<img src="screenshots/quiz_game_result_screen.jpg" alt="Results Screen" width="300">
+<img src="screenshots/leaderboard_with_players.jpg" alt="Leaderboard" width="300">
 
 
 ## SQLite Database
