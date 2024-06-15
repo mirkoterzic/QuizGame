@@ -67,7 +67,7 @@ Displays the quiz results and allows the player to save their score to the leade
 
 ## Live Preview on Appetize.io
 
-[Live Preview](https://appetize.io/app/unid4ee7ihyw2p5f5m7omx4mwe?device=pixel7&osVersion=13.0))
+[Live Preview](https://appetize.io/app/unid4ee7ihyw2p5f5m7omx4mwe?device=pixel7&osVersion=13.0)
 
 ## Contact
 
