@@ -67,7 +67,7 @@ n.
 
 ## Live Preview on Appetize.io
 
-[Live Preview](https://appetize.io/app/qcbpsvt3ey4todly2ty6oh4oqm)
+[Live Preview]([https://appetize.io/app/qcbpsvt3ey4todly2ty6oh4oqm](https://appetize.io/app/unid4ee7ihyw2p5f5m7omx4mwe?device=pixel7&osVersion=13.0))
 
 ## Contact
 
