@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.Random;
+
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -38,6 +40,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initializeViews();
         setUpClickListener();
+        shuffleQuestions();
         displayNextQuestion();
         startTimer();
 
@@ -65,6 +68,35 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
+    // Method to shuffle questions
+    private void shuffleQuestions() {
+        QuizQuestion[] questions = getQuestionsFromIntent();
+
+        shuffleArray(questions);
+        getIntent().putExtra("questions", questions); // Update intent with shuffled questions
+    }
+
+    // Method to shuffle an array of QuizQuestions
+    private void shuffleArray(QuizQuestion[] arr) {
+        Random rnd = new Random();
+        for (int i = arr.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+            // Swap arr[i] and arr[index]
+            QuizQuestion temp = arr[i];
+            arr[i] = arr[index];
+            arr[index] = temp;
+        }
+    }
+    private void shuffleOptionsArray(String[] arr) {
+        Random rnd = new Random();
+        for (int i = arr.length - 1; i > 0; i--) {
+            int index = rnd.nextInt(i + 1);
+            // Swap arr[i] and arr[index]
+            String temp = arr[i];
+            arr[i] = arr[index];
+            arr[index] = temp;
+        }
+    }
     // Method to check answer and proceed to the next question
     private void checkAnswerAndProceed() {
         QuizQuestion currentQuestion = getCurrentQuestion();
@@ -150,6 +182,7 @@ public class QuizActivity extends AppCompatActivity {
     private void displayQuestion(QuizQuestion question) {
         questionTextView.setText(question.getQuestion());
         String[] options = question.getOptions();
+        shuffleOptionsArray(options);
         opt_a.setText(options[0]);
         opt_b.setText(options[1]);
         opt_c.setText(options[2]);
