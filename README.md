@@ -2,6 +2,11 @@
 
 Welcome to the Android Quiz Game! This application is a fun and interactive quiz game that includes a main gameplay area and a leaderboard to track high scores. The app is written in Java and uses SQLite to manage the leaderboard.
 
+
+
+## Live Preview on Appetize.io
+
+[Live Preview](https://appetize.io/app/unid4ee7ihyw2p5f5m7omx4mwe?device=pixel7&osVersion=13.0)
 ## Features
 
 - **Main Quiz Game**: Challenge yourself with a variety of questions.
@@ -65,9 +70,6 @@ Displays the quiz results and allows the player to save their score to the leade
 
 
 
-## Live Preview on Appetize.io
-
-[Live Preview](https://appetize.io/app/unid4ee7ihyw2p5f5m7omx4mwe?device=pixel7&osVersion=13.0)
 
 ## Contact
 
